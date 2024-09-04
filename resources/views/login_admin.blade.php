@@ -9,10 +9,11 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="index.php" method="POST">
+        <form action="{{url('login/process') }}" method="POST">
+            @csrf
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" placeholder="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="masukan email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
@@ -20,7 +21,6 @@
             </div>
             <button type="submit" name="login">Login</button>
         </form>
-        <p class="register-link">Belum punya akun? <a href="register.php">Daftar sekarang!</a></p>
     </div>
 </body>
 </html>

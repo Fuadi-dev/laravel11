@@ -1,0 +1,74 @@
+/* public/css/header.css */
+
+body {
+    margin: 0;
+    font-family: 'Figtree', Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo img {
+    height: 50px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-right: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background-color: #f0f0f0;
+    color: #FF2D20;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn {
+    color: #FF2D20;
+    border: 1px solid #FF2D20;
+}
+
+.login-btn:hover, .login-btn:focus {
+    background-color: #FF2D20;
+    color: #ffffff;
+}
+
+.register-btn {
+    color: #FF2D20;
+    border: 1px solid #FF2D20;
+}
+
+.register-btn:hover, .register-btn:focus {
+    background-color: #FF2D20;
+    color: #ffffff;
+}

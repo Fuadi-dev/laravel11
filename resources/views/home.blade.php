@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
 </head>
+@include('header')
 <body>
-    <h1>HALO</h1>
+   <section class="section hero" id="home" aria-label="home"
+        style="background-image: url('./img/background.jpg')">
+        <header>
+         <h1>Welcome To My Website</h1>
+        </header>
+   </section>
+   
+
 </body>
+@include ('footer')
 </html>
+
