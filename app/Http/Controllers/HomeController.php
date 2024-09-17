@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -133,7 +134,8 @@ class HomeController extends Controller
         //gabungkan tabel barang dan cart berdasarkan id barang
         $cart = Cart::join('barang','barang.id_barang','=','cart.id_barang')
         ->get();
-        return view('keranjang', compact('cart'));
+        $isLoggedIn = session('customer');
+        return view('keranjang', compact('cart', 'isLoggedIn'));
     }
     
     function addToCart(Request $request){

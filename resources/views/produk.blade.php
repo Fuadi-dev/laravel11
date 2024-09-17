@@ -8,8 +8,9 @@
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap'><link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-@include('sidebar')
+@extends('sidebar')
 <body>
+    @section('content')
     <div class="container">
         <div class="row">
             <a href="{{url('/barang/tambah')}}" class="btn btn-success mb-5">Tambah Barang</a>
@@ -33,7 +34,7 @@
                             @csrf
                             <input type="hidden" name="id_barang" value="{{$brg->id_barang}}">
                             <button type="submit" class="btn btn-danger">Hapus</button>
-                         </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -44,7 +45,7 @@
             @endforelse
         </div>
     </div>
-
+@endsection
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

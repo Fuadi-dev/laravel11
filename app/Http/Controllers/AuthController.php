@@ -52,6 +52,8 @@ class AuthController extends Controller
     }
     //logout admin
     public function logout(Request $request){
+
+        $id = $request->session()->get('id_admin');
         $request->session()->forget('admin');
         $request->session()->forget('id_admin');
         return redirect('login_admin');

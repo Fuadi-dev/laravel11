@@ -119,12 +119,16 @@
             </tfoot>
         </table>
         <div class="text-center mt-4">
+            @if($isLoggedIn == true)
             <form action="{{url('cart/checkout')}}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-success">Checkout</button>
             </form>
+        @else
+            <a href="{{ url('/login_customer') }}" class="btn btn-success">Login untuk Checkout</a>
+        @endif
             <a href="{{url('/')}}" class="btn btn-primary">Lanjut Belanja</a>
-        </div>
+        </div>        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxPMoFkaXCwL" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
