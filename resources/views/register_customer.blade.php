@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <title>Register</title>
+    <link rel="stylesheet" href={{ asset('css/login.css') }}>
 </head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
-        <form action="{{url('login/process') }}" method="POST">
+        <h2>Register</h2>
+        <form action="{{ url('register_customer/proses') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -17,9 +17,13 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" placeholder="password" name="password" required>
+                <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" name="login">Login</button>
+            <div class="form-group">
+                <label for='nama_admin'>Nama Anda:</label>
+                <input type='text' placeholder='masukan nama anda' name='nama_customer' required>
+            </div>
+            <button type="submit" name ="register">Register</button>
         </form>
         <a href="/">kembali</a>
     </div>

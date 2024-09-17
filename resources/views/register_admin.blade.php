@@ -25,6 +25,7 @@
             </div>
             <button type="submit" name ="register">Register</button>
         </form>
+        <a href="/">kembali</a>
     </div>
 </body>
 </html>

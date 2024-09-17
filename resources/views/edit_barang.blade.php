@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h2 class="title">Edit Barang: {{$barang->nama_barang}}</h2>
-        <form class="edit-form" action="{{url('barang/edit/process/') }}" method="POST" enctype="multipart/form-data">
+        <form class="edit-form" action="{{url('barang/edit/process/') }}" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Apakah Anda yakin ingin menyimpan perubahan?')">
             @csrf
             <input type="hidden" name="id_barang" value="{{$barang->id_barang}}">
             <div class="form-group">

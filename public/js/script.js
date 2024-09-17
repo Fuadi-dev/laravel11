@@ -1,53 +1,24 @@
-'use strict';
+const body = document.querySelector("body"),
+  sidebar = body.querySelector("nav"),
+  toggle = body.querySelector(".toggle"),
+  searchBtn = body.querySelector(".search-box"),
+  modeSwitch = body.querySelector(".toggle-switch"),
+  modeText = body.querySelector(".mode-text");
 
-
-
-const navbar = document.querySelector("[data-navbar]");
-const navbarLinks = document.querySelectorAll("[data-nav-link]");
-const navbarToggler = document.querySelector("[data-nav-toggler]");
-
-navbarToggler.addEventListener("click", function () {
-  navbar.classList.toggle("active");
-  this.classList.toggle("active");
+toggle.addEventListener("click", () => {
+  sidebar.classList.toggle("close");
 });
 
-for (let i = 0; i < navbarLinks.length; i++) {
-  navbarLinks[i].addEventListener("click", function () {
-    navbar.classList.remove("active");
-    navbarToggler.classList.remove("active");
-  });
-}
+searchBtn.addEventListener("click", () => {
+  sidebar.classList.remove("close");
+});
 
+modeSwitch.addEventListener("click", () => {
+  body.classList.toggle("dark");
 
-
-/**
- * search toggle
- */
-
-const searchTogglers = document.querySelectorAll("[data-search-toggler]");
-const searchBox = document.querySelector("[data-search-box]");
-
-for (let i = 0; i < searchTogglers.length; i++) {
-  searchTogglers[i].addEventListener("click", function () {
-    searchBox.classList.toggle("active");
-  });
-}
-
-
-
-/**
- * header
- */
-
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= 200) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
+  if (body.classList.contains("dark")) {
+    modeText.innerText = "Light mode";
   } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
+    modeText.innerText = "Dark mode";
   }
 });
