@@ -29,3 +29,8 @@ Route::post('login/proses', [AuthController::class, 'login_customer']);
 Route::get('/register_customer', [AuthController::class, 'register_customer']);
 Route::post('register_customer/proses', [AuthController::class, 'regmer']);
 Route::get('/logout_customer', [AuthController::class, 'logout_customer']);
+
+Route::get('/data_customer', [AuthController::class, 'tampil_customer']);
+Route::get('/customer/edit/{id_customer}', [AuthController::class, 'edit_customer']);
+Route::post('customer/edit/process', [AuthController::class, 'prosesEditCustomer']);
+Route::delete('/customer/delete',[AuthController::class, 'hapusCustomer']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Admin;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -85,18 +86,22 @@ class AuthController extends Controller
     }
     //proses daftar customer
     function regmer(Request $request){
+        $nama_customer = htmlspecialchars($request->input ('nama_customer'));
         $email = htmlspecialchars($request->input ('email'));
         $password = htmlspecialchars($request->input ('password'));
-        $nama_customer = htmlspecialchars($request->input ('nama_customer'));
+        $alamt = htmlspecialchars($request->input ('alamat'));
+        $no_hp = htmlspecialchars($request->input ('no_hp'));
 
         $HashedPass = Hash::make($password);
         $customer= new Customer();
 
 
+        $customer->nama_customer = $nama_customer;
         $customer->email = $email;
         $customer->password = $HashedPass;
 
-        $customer->nama_customer = $nama_customer;
+        $customer->alamat = $alamt;
+        $customer->no_hp = $no_hp;
         $customer->save();
         return redirect('login_customer');
     }
@@ -107,4 +112,47 @@ class AuthController extends Controller
         return redirect('login_customer');
     }
     
+    public function tampil_customer(){
+        $customer = Customer::all();
+        return view('data_customer', compact('customer'));
+    }
+
+    public function edit_customer($id_customer){
+        $customer = Customer::where('id_customer', $id_customer)->first();
+        return view('edit_customer', compact('customer'));
+    }
+
+    function prosesEditCustomer(Request $request){
+        $id_customer = $request->input('id_customer');
+        $nama_customer = $request->input('nama_customer');
+        $email = $request->input('email');
+        $alamat = $request->input('alamat');
+        $no_hp = $request->input('no_hp');
+
+        $query = Customer::where('id_customer', $id_customer)->first();
+
+        $query->nama_customer = $nama_customer;
+        $query->email = $email;
+        $query->alamat = $alamat;
+        $query->no_hp = $no_hp;
+        $query->save();
+
+        if($query){
+            return redirect('data_customer');
+        }else{
+            return redirect('data_customer')->with('error', 'Data gagal diupdate');
+        }
+    }
+
+    function hapusCustomer(Request $request){
+        $id_customer = $request->input('id_customer');
+        $cstmr = Customer::where('id_customer', $id_customer)->first();
+        if ($cstmr){
+            $cstmr->delete();
+            return redirect('data_customer');
+        }
+        else{
+            return redirect('data_customer')->with('error', 'Data gagal dihapus');
+        }
+    }
 }

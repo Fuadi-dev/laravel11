@@ -12,16 +12,24 @@
         <form action="{{ url('register_customer/proses') }}" method="POST">
             @csrf
             <div class="form-group">
+                <label for='nama_admin'>Nama Anda:</label>
+                <input type='text' placeholder='masukan nama anda' name='nama_customer' required>
+            </div>
+            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" placeholder="masukan email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" placeholder="masukan password" name="password" required>
             </div>
             <div class="form-group">
-                <label for='nama_admin'>Nama Anda:</label>
-                <input type='text' placeholder='masukan nama anda' name='nama_customer' required>
+                <label for='alamat'>Alamat:</label>
+                <input type='text' placeholder='masukan alamat anda' name='alamat' required>
+            </div>
+            <div class="form-group">
+                <label for='no_hp'>No HP:</label>
+                <input type='text' placeholder='masukan no hp anda' name='no_hp' required>
             </div>
             <button type="submit" name ="register">Register</button>
         </form>

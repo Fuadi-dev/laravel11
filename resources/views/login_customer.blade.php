@@ -22,6 +22,7 @@
             </div>
             <button type="submit" name=login>Login</button>
         </form>
+        <h4>Belum punya akun? <a href="/register_customer">daftar sekarang!</a></h4>
         <a href="/">kembali</a>
     </div>
 

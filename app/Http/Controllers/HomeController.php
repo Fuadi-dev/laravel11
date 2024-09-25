@@ -51,7 +51,7 @@ class HomeController extends Controller
         $foto_barang = $request->file('foto_barang');
         $thumb = $foto_barang->getClientOriginalName();
 
-        $path = public_path() . '/foto_barang';
+        $path = public_path() . '/img';
 
         if (!File::exists($path)) {
             File::makeDirectory($path, 0777, true, true);
@@ -127,8 +127,6 @@ class HomeController extends Controller
 
             return redirect('produk');
         }
-
-
     }
     public function Cart(){
         //gabungkan tabel barang dan cart berdasarkan id barang

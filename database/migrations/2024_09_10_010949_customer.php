@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('nama_customer');
+            $table->string('alamat');
+            $table->string('no_hp');
             $table->timestamps();
         });
     }

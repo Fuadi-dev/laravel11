@@ -31,6 +31,7 @@
             </div>
             <div class="form-group">
                 <label for="foto_barang">Foto Barang</label>
+                <img src="{{asset('foto_barang/' . $barang->foto_barang) }}" alt="">
                 <input type="file" id="foto_barang" name="foto_barang" value={{$barang->foto_barang }}>
             </div>
             <button class="submit-btn" type="submit">Simpan</button>
