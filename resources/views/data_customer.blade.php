@@ -12,6 +12,12 @@
     @section('content')
     <div class="container mt-4">
         <h2>Data Customer</h2>
+            <form action="{{ url('/data_customer') }}" method="GET" class="mb-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search customer" name="search" value="{{ request('search') }}">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>
         <table class="table table-striped">
             <thead>
                 <tr>

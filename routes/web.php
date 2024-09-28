@@ -34,3 +34,6 @@ Route::get('/data_customer', [AuthController::class, 'tampil_customer']);
 Route::get('/customer/edit/{id_customer}', [AuthController::class, 'edit_customer']);
 Route::post('customer/edit/process', [AuthController::class, 'prosesEditCustomer']);
 Route::delete('/customer/delete',[AuthController::class, 'hapusCustomer']);
+
+Route::get('order/confirm', [HomeController::class, 'orderConfirm']);
+Route::post('/order/process', [HomeController::class, 'checkoutProcess']);

@@ -174,4 +174,6 @@ class HomeController extends Controller
             return response()->json(['success' => false, 'message' => 'Cart not found.']);
         }
     }
+
+    
 }

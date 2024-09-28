@@ -14,8 +14,8 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="/">Shop</a></li>
+                <li><a href="#">Pesanan Saya</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="cart">Keranjang</a></li>
             </ul>

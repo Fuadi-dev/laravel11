@@ -112,8 +112,20 @@ class AuthController extends Controller
         return redirect('login_customer');
     }
     
-    public function tampil_customer(){
+    public function tampil_customer(Request $request){
         $customer = Customer::all();
+        $search = $request->input('search');
+        $query = Customer::query();
+    
+        if ($search) {
+            $query->where('id_customer', 'LIKE', "%{$search}%")
+                  ->orWhere('nama_customer', 'LIKE', "%{$search}%")
+                  ->orWhere('email', 'LIKE', "%{$search}%")
+                  ->orWhere('alamat', 'LIKE', "%{$search}%")
+                  ->orWhere('no_hp', 'LIKE', "%{$search}%");
+        }
+    
+        $customer = $query->get();
         return view('data_customer', compact('customer'));
     }
 
